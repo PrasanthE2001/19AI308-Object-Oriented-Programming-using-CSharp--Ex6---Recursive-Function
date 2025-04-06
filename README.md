@@ -1,60 +1,52 @@
 # 19AI308-Object-Oriented-Programming-using-CSharp--Ex6---Recursive-Function
-## Aim: 
-To write a C# program to reverse a number using a recursive function.
 
-## Algorithm:
-### Step 1:
-Create a class called reverse.
 
-### Step 2:
-Create a recursive function named RevNum to reverse the number
+# Aim:
+To write a C# program to reverse a number using recursive function.
 
-### Step 3:
-In the function find a reminder of the number multiply it by 10 and add the reverse number.
+# Algorithm:
+## STEP 1 :
+Create a function (reverse) that takes two integer as parameter and returns one of its modified parameter.
 
-### Step 4:
-Recursively call this function to get the reversed number.
+## STEP 2 :
+Check if the number is 0. If so, return the reversed number.
 
-### Step 5:
-Create a Main function
+## STEP 3 :
+Use modulo operator (%) to get the last digit of the number.
 
-### Step 6:
-Get input from the user for the number to be reversed.
+## STEP 4 :
+Multiply the current reversed number by 10 and add the last digit.
 
-### Step 7:
-Call the function RevNum
+## STEP 5 :
+Call the method with the remaining digits by dividing the number by 10.
 
-### Step 8:
-End of the program.
+# Program:
 
-## Program:
-```cs
+```
 using System;
-
-public class reverse
+public class RecursiveFunction
 {
-    static int RevNum(int n, int rev = 0)
+    public static int reverse(int num,int rev)
     {
-        if (n == 0)
-        {
+        if (num == 0)
             return rev;
-        }
-        int digit = n % 10;
-        rev = rev * 10 + digit;
-        return RevNum(n / 10, rev);
+        else
+            return reverse(num / 10, (rev * 10) + (num % 10));
     }
-
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
-        Console.Write("Enter a number to reverse: ");
-        int number = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Reversed number: {0}", RevNum(number));
+        Console.Write("Enter a number:");
+        int n, r;
+        n = Convert.ToInt32(Console.ReadLine());
+        r = reverse(n,0);
+        Console.WriteLine("The reversed number is " + r);
     }
 }
 ```
 
-## Output:
-![](https://github.com/Ronick2005/19AI308-Object-Oriented-Programming-using-CSharp--Ex6---Recursive-Function/assets/83219341/df78ed04-89ce-46bb-afbd-9b249d0e68d0)
+# Output:
+![image](https://github.com/user-attachments/assets/4c555339-8e35-4844-8bc5-9207ff2a0d5e)
 
-## Result:
-Thus C# program to reverse a number using recursive function is written and executed sucessfully.
+
+# Result:
+Thus, reversing a number using recursive function in C# is successfully verified and executed.
